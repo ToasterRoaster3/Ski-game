@@ -415,7 +415,7 @@ MonoBehaviour:
   turnSpeed: 100
   minSpeed: 0
   maxSpeed: 1000
-  minAcceleration: 0
+  minAcceleration: 300
   maxAcceleration: 500
   groundLayers:
     serializedVersion: 2
