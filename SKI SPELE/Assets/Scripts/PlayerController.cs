@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 100, turnSpeed = 100, minSpeed = 0, maxSpeed = 500, minAcceleration = 0, maxAcceleration = 500;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private Transform groundTransform;
+    [SerializeField] private TakeDamage takeDamage;
+    
     private float speed = 0;
-
     private Rigidbody rb;
     private Animator animator;
     
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (takeDamage.isHurt)
+            return;
         float angle = Mathf.Abs(transform.eulerAngles.y -100);
         acceleration = Remap(0, 90, maxAcceleration, minAcceleration, angle);
         speed += acceleration * Time.fixedDeltaTime;
