@@ -54,7 +54,14 @@ public class GameEndUI : MonoBehaviour
     
     public void NextLevel()
     {
-        
+        StartCoroutine(NextLevelCouroutine());
+    }
+
+    private IEnumerator NextLevelCouroutine()
+    {
+        crossFade.CrossFadeAlpha(1, 1f, true);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
     public void Quit()

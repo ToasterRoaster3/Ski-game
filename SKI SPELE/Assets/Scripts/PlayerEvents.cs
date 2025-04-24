@@ -12,4 +12,12 @@ public class PlayerEvents : MonoBehaviour
         if (onHitEvent != null)
             onHitEvent();
     }
+
+    protected virtual void PlayerCollision()
+    {
+        PlayerEvents.CallOnHitEvent();
+        Debug.Log("Player hit " + name);
+    }
+
+
 }
